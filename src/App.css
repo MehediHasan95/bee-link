@@ -1,4 +1,13 @@
-/* Styles for "LinkList.js" file  */
-.link-list-group .link-list:first-child {
-  background-color: khaki;
+.most-use-list:nth-child(-n + 4)::after {
+  content: "most";
+  font-size: xx-small;
+  color: white;
+  background-color: #e74f5b;
+  width: 2.1rem;
+  height: 1rem;
+  padding: 0 5px;
+  border-radius: 0 6px 0 2em;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }

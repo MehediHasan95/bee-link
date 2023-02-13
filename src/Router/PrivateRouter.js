@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center">
-        <MoonLoader color="#582FF5" size="200" />
+        <MoonLoader color="#582FF5" />
       </div>
     );
   } else if (user) {

@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4yOROGWRpkFFj3WI_KUirbxGZBh1zZfM",
-  authDomain: "bee-link-6f6ab.firebaseapp.com",
-  projectId: "bee-link-6f6ab",
-  storageBucket: "bee-link-6f6ab.appspot.com",
-  messagingSenderId: "149141717633",
-  appId: "1:149141717633:web:fc3129d6533d0edcafc380",
+  apiKey: "AIzaSyCEAK8UKuFH7MTg3JOHk6q95VaxptVqMdw",
+  authDomain: "webbeelink.firebaseapp.com",
+  projectId: "webbeelink",
+  storageBucket: "webbeelink.appspot.com",
+  messagingSenderId: "38870179257",
+  appId: "1:38870179257:web:903ce51dc2a3c7b9076a68",
 };
 
 const app = initializeApp(firebaseConfig);

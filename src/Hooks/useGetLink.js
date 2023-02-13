@@ -6,11 +6,12 @@ import { auth, db } from "../Firebase/FirebaseConfig";
 const useGetLink = () => {
   const [user] = useAuthState(auth);
   const [getLink, setGetLink] = useState([]);
+
   useEffect(() => {
     onSnapshot(
       query(
         collection(db, `webLinkCollection/${user?.uid}/list`),
-        orderBy("time", "desc")
+        orderBy("rate", "desc")
       ),
       (snapshot) => {
         setGetLink(snapshot.docs.map((e) => e.data()));

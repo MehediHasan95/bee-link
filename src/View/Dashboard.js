@@ -21,22 +21,22 @@ const Dashboard = () => {
           <NavLink
             to="profile"
             className={({ isActive }) =>
-              isActive ? "text-[#FEA31B]" : "text-white"
+              isActive ? "bg-white text-slate-800 py-2" : "text-white"
             }
           >
-            <p className="px-3 py-2">
+            <button className="px-3 py-1 my-1 w-full border">
               <FontAwesomeIcon icon={faUser} /> <span>Profile</span>
-            </p>
+            </button>
           </NavLink>
           <NavLink
             to="add"
             className={({ isActive }) =>
-              isActive ? "text-green-200" : "text-white"
+              isActive ? "bg-white text-slate-800 py-2" : "text-white"
             }
           >
-            <p className="px-3 py-2">
+            <button className="px-3 py-1 my-1 w-full border">
               <FontAwesomeIcon icon={faPlus} /> <span>Add Link</span>
-            </p>
+            </button>
           </NavLink>
         </div>
         <div className="col-span-1 md:col-span-5 bg-[#E5E4E9] min-h-screen">

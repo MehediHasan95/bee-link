@@ -3,8 +3,6 @@ import Navbar from "./Navbar";
 import slide1 from "../images/slide-1.png";
 import slide2 from "../images/slide-2.png";
 import slide3 from "../images/slide-3.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -22,7 +20,6 @@ const Home = () => {
             </p>
             <Link to="/dashboard">
               <button className="bg-[#582FF5] hover:bg-[#262C9C] text-white p-3 my-2 rounded-lg flex items-center">
-                {/* Go Dashboard <FontAwesomeIcon icon={faSignIn} /> */}
                 <span className="mx-2">Go Dashboard</span>
                 <box-icon
                   name="rocket"
