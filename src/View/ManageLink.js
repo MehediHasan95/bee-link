@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { addWebLinkToDB } from "../Database/Database";
 import { auth } from "../Firebase/FirebaseConfig";
 import LinkList from "./LinkList";
+import Summary from "./Summary";
 
 const ManageLink = () => {
   const [user] = useAuthState(auth);
@@ -32,7 +33,6 @@ const ManageLink = () => {
     <section>
       <div className="grid grid-cols-1 md:grid-cols-7">
         <div className="col-span-1 md:col-span-5">
-          {/* <p>Insert your link information:</p> */}
           <form onSubmit={handleManageLink} className="block md:flex">
             {open && (
               <input
@@ -40,7 +40,7 @@ const ManageLink = () => {
                 name="name"
                 className="p-2 mr-1 mb-2 md:mb-0 rounded-xl outline-none block w-full"
                 placeholder="Name"
-                // data-aos="flip-left"
+                data-aos="flip-left"
               />
             )}
             {open && (
@@ -49,7 +49,7 @@ const ManageLink = () => {
                 name="weblink"
                 className="p-2 mr-1 mb-2 md:mb-0 rounded-xl outline-none block w-full"
                 placeholder="https://www."
-                // data-aos="flip-right"
+                data-aos="flip-right"
               />
             )}
 
@@ -58,8 +58,8 @@ const ManageLink = () => {
                 <button
                   onKeyDown={() => handleManageLink()}
                   className="mr-1 text-white bg-[#149D4F] rounded-full p-3 w-full md:flex tooltip tooltip-primary"
-                  // data-aos="zoom-in"
-                  // data-tip="Add your link"
+                  data-aos="zoom-in"
+                  data-tip="Done"
                 >
                   <box-icon
                     name="check-double"
@@ -73,8 +73,8 @@ const ManageLink = () => {
                 <button
                   onClick={() => setOpen(!open)}
                   className="text-white bg-[#F92D45] rounded-full p-3 w-full md:flex tooltip tooltip-primary"
-                  // data-aos="fade-left"
-                  // data-tip="Close"
+                  data-aos="fade-left"
+                  data-tip="Close"
                 >
                   <box-icon name="x" color="white" animation="tada-hover" />
                 </button>
@@ -117,11 +117,7 @@ const ManageLink = () => {
           </div>
         </div>
         <div className="col-span-1 md:col-span-2">
-          <h1 className="text-center text-xl">Summary</h1>
-          <div className="text-center">
-            <h1 className="text-5xl">25</h1>
-            <p>Point</p>
-          </div>
+          <Summary />
         </div>
       </div>
     </section>

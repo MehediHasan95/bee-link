@@ -14,6 +14,7 @@ const addWebLinkToDB = async (name, weblink, time, user) => {
     weblink: weblink,
     time: time,
     rate: 0.0,
+    click: 0,
   });
   await updateDoc(doc(db, collectionName, success.id), {
     id: success.id,
@@ -22,19 +23,20 @@ const addWebLinkToDB = async (name, weblink, time, user) => {
 };
 
 // Item rating operation
-const updateRating = async (id, rate, user) => {
+const updateRating = async (id, rate, click, user) => {
   const collectionName = `webLinkCollection/${user?.uid}/list`;
   await updateDoc(doc(db, collectionName, id), {
     rate: rate + 0.1,
+    click: click + 1,
   });
 };
 
 //Update information operation
-const updateInformation = async (user, edit) => {
+const updateInformation = async (user, updateItem) => {
   const collectionName = `webLinkCollection/${user?.uid}/list`;
-  await updateDoc(doc(db, collectionName, edit.id), {
-    name: edit.name,
-    weblink: edit.weblink,
+  await updateDoc(doc(db, collectionName, updateItem.id), {
+    name: updateItem.name,
+    weblink: updateItem.weblink,
   });
 };
 

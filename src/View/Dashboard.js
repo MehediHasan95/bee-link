@@ -21,20 +21,24 @@ const Dashboard = () => {
           <NavLink
             to="profile"
             className={({ isActive }) =>
-              isActive ? "bg-white text-slate-800 py-2" : "text-white"
+              isActive
+                ? "bg-white text-slate-800 py-2 rounded-full"
+                : "text-white"
             }
           >
-            <button className="px-3 py-1 my-1 w-full border">
+            <button className="px-3 py-1 my-1 w-full ">
               <FontAwesomeIcon icon={faUser} /> <span>Profile</span>
             </button>
           </NavLink>
           <NavLink
             to="add"
             className={({ isActive }) =>
-              isActive ? "bg-white text-slate-800 py-2" : "text-white"
+              isActive
+                ? "bg-white text-slate-800 py-2 rounded-full"
+                : "text-white"
             }
           >
-            <button className="px-3 py-1 my-1 w-full border">
+            <button className="px-3 py-1 my-1 w-full">
               <FontAwesomeIcon icon={faPlus} /> <span>Add Link</span>
             </button>
           </NavLink>
@@ -49,9 +53,10 @@ const Dashboard = () => {
             </h1>
             <button
               onClick={() => signOut()}
-              className="duration-300 hover:text-[#F92D45] hover:-translate-x-2 hover:duration-300"
+              className="duration-300 hover:text-[#F92D45] hover:-translate-x-1 hover:duration-300 tooltip tooltip-left"
+              data-tip="Sign Out"
             >
-              SignOut <FontAwesomeIcon icon={faSignOut} />
+              <FontAwesomeIcon icon={faSignOut} />
             </button>
           </div>
           <div className="p-3">

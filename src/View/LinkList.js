@@ -41,7 +41,11 @@ const LinkList = () => {
           <img src={noresult} alt="" className="w-2/6 mx-auto" />
         </div>
       )}
-      <UpdatePopup updateItem={findOne} user={user} />
+      <UpdatePopup
+        updateItem={findOne}
+        setUpdateItem={setFindOne}
+        user={user}
+      />
       <DeletePopup deleteItem={deleteItem} user={user} />
     </section>
   );

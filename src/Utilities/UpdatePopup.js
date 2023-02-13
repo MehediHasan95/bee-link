@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { updateInformation } from "../Database/Database";
 
-const UpdatePopup = ({ updateItem, user }) => {
-  const [edit, setEdit] = useState({});
-  const { name, weblink } = updateItem;
-
-  console.log(updateItem, user);
-
+const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
   const handleEditName = (e) => {
     const { name, ...rest } = updateItem;
-    setEdit({ name: e, ...rest });
+    setUpdateItem({ name: e, ...rest });
   };
   const handleEditWeblink = (e) => {
     const { weblink, ...rest } = updateItem;
-    setEdit({ weblink: e, ...rest });
+    setUpdateItem({ weblink: e, ...rest });
   };
 
   const handleCompleteUpdate = (e) => {
     e.preventDefault();
-    updateInformation(user, edit);
+    updateInformation(user, updateItem);
   };
 
   return (
@@ -33,7 +28,7 @@ const UpdatePopup = ({ updateItem, user }) => {
               onChange={(e) => handleEditName(e.target.value)}
               type="text"
               name="name"
-              value={edit.name}
+              value={updateItem.name}
               className="p-2 mb-3 border w-full outline-none rounded-md"
               placeholder="Name"
             />
@@ -42,7 +37,7 @@ const UpdatePopup = ({ updateItem, user }) => {
               onChange={(e) => handleEditWeblink(e.target.value)}
               type="text"
               name="weblink"
-              value={edit.weblink}
+              value={updateItem.weblink}
               className="p-2 border mb-3 w-full outline-none rounded-md"
               placeholder="https://www."
             />

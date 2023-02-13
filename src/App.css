@@ -1,8 +1,9 @@
-.most-use-list:nth-child(-n + 4)::after {
+.most-use-list:nth-child(-n + 3)::after {
   content: "most";
   font-size: xx-small;
   color: white;
-  background-color: #e74f5b;
+  font-style: italic;
+  background-color: #582ff5;
   width: 2.1rem;
   height: 1rem;
   padding: 0 5px;
