@@ -11,11 +11,11 @@ const LinkList = () => {
   const [user] = useAuthState(auth);
   const [getLink] = useGetLink();
   const [findOne, setFindOne] = useState({});
-  const [deleteItem, setDeleteItem] = useState("");
+  const [deleteItem, setDeleteItem] = useState({});
 
   // Delete method
-  const handleDeleteItem = (id) => {
-    setDeleteItem(id);
+  const handleDeleteItem = (item) => {
+    setDeleteItem(item);
   };
 
   // Update method

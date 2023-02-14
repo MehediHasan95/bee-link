@@ -1,111 +1,168 @@
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/FirebaseConfig";
+import googleicon from "../images/google.png";
+import PasswordReset from "../Utilities/PasswordReset";
 
 const Authentication = () => {
   const [toggle, setToggle] = useState(false);
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
-  if (user) {
+  if (googleUser) {
     navigate(from, { replace: true });
-  } else if (error) {
+  } else if (googleError) {
     toast.error("Popup closed by user");
   }
 
   const handleAuthentication = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
+    const displayName = e.target.name.value;
     const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (displayName && email) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+          if (result) {
+            updateProfile(auth.currentUser, {
+              displayName: displayName,
+            });
+            sendEmailVerification(auth.currentUser).then(() => {
+              toast.success(
+                "A verification link has been sent to your email account"
+              );
+            }, setToggle(false));
+          }
+        })
+        .catch((error) => {
+          toast.error(error.message.slice(15));
+        });
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+          if (result.user.emailVerified) {
+            navigate(from, { replace: true });
+          } else {
+            toast.error("Please verify your email");
+          }
+        })
+        .catch((error) => {
+          toast.error(error.message.slice(15));
+        });
+    }
   };
 
   return (
     <section>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left lg:w-2/5">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+      <div className="flex gap-2 justify-center items-center flex-col md:flex-row min-h-screen bg-base-200">
+        <div className="card w-11/12 md:w-3/6 max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={handleAuthentication} className="card-body">
+            <p className="text-center text-xl">
+              {toggle ? "Create an account" : "Login"}
             </p>
-            <button
-              onClick={() => signInWithGoogle()}
-              className="text-center flex items-center"
-            >
-              <box-icon type="logo" name="google" />
-              <span>Continue with Google</span>
-            </button>
-          </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleAuthentication} className="card-body">
-              {toggle && (
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="name"
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
+            {toggle && (
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+            )}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="email"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                className="input input-bordered"
+                required
+              />
+              {!toggle && (
+                <label htmlFor="my-modal" className="label">
+                  <p className="label-text-alt link link-hover">
+                    Forgot password?
+                  </p>
+                </label>
               )}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="email"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                  required
-                />
-                {!toggle && (
-                  <label className="label">
-                    <a href="/#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
-                )}
-              </div>
-              <div className="form-control">
-                <button className="btn btn-primary">
-                  {toggle ? "Register" : "Login"}
-                </button>
-              </div>
-              <p className="text-center">
-                {toggle ? "Already member?" : "Don't have any account?"}{" "}
-                <span
-                  onClick={() => setToggle(!toggle)}
-                  className="underline hover:text-[#582FF5] cursor-pointer"
-                >
-                  {toggle ? "Login" : "Register"}
-                </span>
-              </p>
-            </form>
+            </div>
+            <div className="form-control">
+              <button
+                onKeyDown={() => handleAuthentication()}
+                className="btn btn-primary"
+              >
+                {toggle ? "Register" : "Login"}
+              </button>
+            </div>
+            <p className="text-center">
+              {toggle ? "Already member?" : "Don't have any account?"}{" "}
+              <span
+                onClick={() => setToggle(!toggle)}
+                className="underline hover:text-[#582FF5] cursor-pointer"
+              >
+                {toggle ? "Login" : "Register"}
+              </span>
+            </p>
+          </form>
+        </div>
+        <div className="w-11/12 md:w-3/6 text-center p-2">
+          <div className="hidden md:block">
+            <h1 className="text-5xl">Hello there,</h1>
+            <p className="my-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium voluptatem velit laborum fugit odit labore sunt culpa
+              nulla rerum beatae!
+            </p>
           </div>
+          <button
+            onClick={() => signInWithGoogle()}
+            className="w-10/12 md:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#572ff580] duration-300 hover:duration-300 hover:text-white"
+          >
+            <img src={googleicon} alt="" className="w-6 mr-2" />
+            <span>Continue with Google</span>
+          </button>
+          <button
+            onClick={() => navigate("/")}
+            className="block mx-auto hover:text-[#582FF5] duration-300 hover:-translate-x-2 hover:duration-300"
+          >
+            <FontAwesomeIcon icon={faAnglesLeft} /> Go back
+          </button>
         </div>
       </div>
-      <button>Go to Homapage</button>
+      <PasswordReset />
     </section>
   );
 };

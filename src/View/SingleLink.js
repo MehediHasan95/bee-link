@@ -8,7 +8,7 @@ import React from "react";
 import { updateRating } from "../Database/Database";
 
 const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
-  const { id, name, rate, click, weblink } = single;
+  const { id, name, rate, click, taka, weblink } = single;
 
   return (
     <div
@@ -17,6 +17,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
     >
       <p>
         <a
+          onClick={() => updateRating(id, rate, click, taka, user)}
           data-tip={weblink}
           href={weblink}
           target="_blank"
@@ -30,7 +31,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
         </a>
       </p>
       <a
-        onClick={() => updateRating(id, rate, click, user)}
+        onClick={() => updateRating(id, rate, click, taka, user)}
         href={weblink}
         target="_blank"
         className="text-xl font-semibold hover:underline text-[#582FF5]"
@@ -55,7 +56,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
 
         <label
           htmlFor="my-modal"
-          onClick={() => handleDeleteItem(id)}
+          onClick={() => handleDeleteItem(single)}
           title="Delete"
           className="mx-2 cursor-pointer text-[#F52D3A]"
         >

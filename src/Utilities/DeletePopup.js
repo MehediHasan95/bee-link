@@ -5,10 +5,12 @@ import React from "react";
 import { db } from "../Firebase/FirebaseConfig";
 
 const DeletePopup = ({ deleteItem, user }) => {
+  const { rate, taka } = deleteItem;
+
   const confirmDelete = async (confirm) => {
     if (confirm) {
       await deleteDoc(
-        doc(db, `webLinkCollection/${user?.uid}/list`, deleteItem)
+        doc(db, `webLinkCollection/${user?.uid}/list`, deleteItem.id)
       );
     }
   };
@@ -22,10 +24,12 @@ const DeletePopup = ({ deleteItem, user }) => {
             icon={faCircleExclamation}
             className="text-5xl text-amber-300"
           />
-          <h3 className="text-base mb-5 mt-3">
-            Are you sure you want to delete this item?
-          </h3>
-
+          <p className="my-5">
+            Also you will lose (
+            <span className="text-[#582FF5] font-bold">{taka}</span>) tk and (
+            <span className="text-[#582FF5] font-bold">{rate}</span>) rating
+          </p>
+          <h3 className="text-base mb-5">Are you sure?</h3>
           <div className="flex justify-center">
             <button
               onClick={() => confirmDelete(true)}

@@ -7,7 +7,9 @@ import { auth } from "../Firebase/FirebaseConfig";
 const Profile = () => {
   const [user, loading] = useAuthState(auth);
 
-  console.log(user);
+  const { displayName, email, emailVerified, metadata, isAnonymous, uid } =
+    user;
+
   return (
     <section>
       <div
@@ -17,7 +19,7 @@ const Profile = () => {
         <div className="col-span-3 md:col-span-1 h-36 md:h-48 overflow-hidden">
           <img
             src={!loading && user?.photoURL}
-            alt="profile_picture"
+            alt="no_image"
             className="w-full h-full object-cover"
           />
         </div>
@@ -33,6 +35,42 @@ const Profile = () => {
       <div className="p-2" data-aos="fade-up">
         <p>Profile Information:</p>
         <hr className="border border-gray-300" />
+        <div className="flex">
+          <div className="w-2/5 md:w-1/5 px-2 text-sm md:text-base">
+            <p className="flex justify-between items-center">
+              <span>Full Name</span>
+              <span>:</span>
+            </p>
+            <p className="flex justify-between items-center">
+              <span>E-mail Address</span>
+              <span>:</span>
+            </p>
+            <p className="flex justify-between items-center">
+              <span>E-mail Verified</span>
+              <span>:</span>
+            </p>
+            <p className="flex justify-between items-center">
+              <span>Anonymous</span>
+              <span>:</span>
+            </p>
+            <p className="flex justify-between items-center">
+              <span>Account Create</span>
+              <span>:</span>
+            </p>
+            <p className="flex justify-between items-center">
+              <span>User ID</span>
+              <span>:</span>
+            </p>
+          </div>
+          <div className="w-4/5 px-2 text-sm md:text-base">
+            <p>{displayName}</p>
+            <p>{email}</p>
+            <p>{emailVerified ? "Yes" : "No"}</p>
+            <p>{isAnonymous ? "Yes" : "No"}</p>
+            <p>{metadata?.creationTime}</p>
+            <p>{uid}</p>
+          </div>
+        </div>
       </div>
     </section>
   );

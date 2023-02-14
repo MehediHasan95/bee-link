@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Lobster: ["Lobster", "cursive"],
+        Monospace: ["Share Tech Mono", "monospace"],
+      },
+    },
   },
   daisyui: {
     themes: false,

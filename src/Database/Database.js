@@ -15,6 +15,7 @@ const addWebLinkToDB = async (name, weblink, time, user) => {
     time: time,
     rate: 0.0,
     click: 0,
+    taka: 0.01,
   });
   await updateDoc(doc(db, collectionName, success.id), {
     id: success.id,
@@ -23,11 +24,12 @@ const addWebLinkToDB = async (name, weblink, time, user) => {
 };
 
 // Item rating operation
-const updateRating = async (id, rate, click, user) => {
+const updateRating = async (id, rate, click, taka, user) => {
   const collectionName = `webLinkCollection/${user?.uid}/list`;
   await updateDoc(doc(db, collectionName, id), {
     rate: rate + 0.1,
     click: click + 1,
+    taka: taka + 0.1,
   });
 };
 

@@ -32,7 +32,7 @@ const ManageLink = () => {
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-7">
-        <div className="col-span-1 md:col-span-5">
+        <div className="col-span-1 md:col-span-5 px-2">
           <form onSubmit={handleManageLink} className="block md:flex">
             {open && (
               <input
@@ -116,7 +116,7 @@ const ManageLink = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 md:col-span-2">
+        <div className="col-span-1 md:col-span-2 p-5 rounded-lg bg-white h-min">
           <Summary />
         </div>
       </div>

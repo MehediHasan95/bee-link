@@ -1,13 +1,12 @@
 import React from "react";
-import logo from "../images/bee-logo.png";
 
 const Navbar = () => {
   return (
     <div className="navbar bg-transparent md:absolute">
       <div className="flex-1">
-        <h1 className="btn btn-ghost normal-case text-xl">
-          Bee Link
-          <img src={logo} alt="logo" className="w-8" />
+        <h1 className="btn btn-ghost normal-case font-Lobster text-xl">
+          <span className="text-[#0D2237]">Bee</span>
+          <span className="text-[#582FF5]">Link</span>
         </h1>
       </div>
 
