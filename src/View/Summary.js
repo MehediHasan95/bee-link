@@ -27,7 +27,7 @@ const Summary = () => {
   }
 
   setInterval(() => {
-    setToday(moment().format("DD MMM YYYY hh:mm:ss"));
+    setToday(moment().format("DD MMM YYYY hh:mm:ss A"));
   }, 1000);
 
   return (
@@ -40,16 +40,19 @@ const Summary = () => {
           title="Number of gems"
           className="flex justify-center items-center"
         >
-          <span className="text-4xl font-semibold text-[#582FF5]">
+          <span className="text-3xl mr-1 font-semibold text-[#582FF5]">
             {totalGems}
           </span>
-          <FontAwesomeIcon icon={faGem} className="text-[#582FF5] text-2xl" />
+          <FontAwesomeIcon icon={faGem} className="text-[#582FF5] text-xl" />
         </div>
       </div>
       <div className="w-11/12 mx-auto">
         <p className="flex justify-between">
           <span>Number of clicks:</span>
-          <span>{totalClick}</span>
+          <span>
+            {totalClick}
+            <small className="text-xs">cs</small>
+          </span>
         </p>
 
         <p className="flex justify-between">

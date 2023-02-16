@@ -16,7 +16,7 @@ import PasswordReset from "../Utilities/PasswordReset";
 
 const Authentication = () => {
   const [toggle, setToggle] = useState(false);
-  const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,8 +24,6 @@ const Authentication = () => {
 
   if (googleUser) {
     navigate(from, { replace: true });
-  } else if (googleError) {
-    toast.error("Popup closed by user");
   }
 
   const handleAuthentication = (e) => {
@@ -140,23 +138,25 @@ const Authentication = () => {
         </div>
         <div className="w-11/12 md:w-3/6 text-center p-2">
           <div className="hidden md:block">
-            <h1 className="text-5xl">Hello there,</h1>
+            <h1 className="text-5xl font-bold">
+              {toggle ? "Welcome back!" : "Hello, Friend!"}
+            </h1>
             <p className="my-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium voluptatem velit laborum fugit odit labore sunt culpa
-              nulla rerum beatae!
+              {toggle
+                ? "To keep connected with us please login with your personal info"
+                : "Enter your personal information and begin the journey with us"}
             </p>
           </div>
           <button
             onClick={() => signInWithGoogle()}
-            className="w-10/12 md:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#572ff580] duration-300 hover:duration-300 hover:text-white"
+            className="w-10/12 md:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#202020] duration-300 hover:duration-300 hover:text-white"
           >
             <img src={googleicon} alt="" className="w-6 mr-2" />
             <span>Continue with Google</span>
           </button>
           <button
             onClick={() => navigate("/")}
-            className="block mx-auto hover:text-[#582FF5] duration-300 hover:-translate-x-2 hover:duration-300"
+            className="block mx-auto text-[#582FF5] font-bold hover:text-[#FD1D46] duration-300 hover:-translate-x-2 hover:duration-300"
           >
             <FontAwesomeIcon icon={faAnglesLeft} /> Go back
           </button>

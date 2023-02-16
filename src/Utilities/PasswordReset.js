@@ -9,7 +9,8 @@ const PasswordReset = () => {
     const email = e.target.email.value;
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success("We have e-mailed your password reset link?");
+        toast.success("Check your email for the password reset link");
+        e.target.reset();
       })
       .catch((error) => {
         toast.error(error.message.slice(15));

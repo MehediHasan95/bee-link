@@ -15,14 +15,17 @@ const Home = () => {
   return (
     <section>
       <Navbar />
-      <div className="min-h-screen text-slate-800 flex justify-center items-center flex-col md:flex-row">
+      <div className="h-max md:min-h-screen text-slate-800 flex justify-center items-center flex-col md:flex-row">
         <div className="w-full md:w-3/6">
           <div className="w-11/12 md:w-3/4 mx-auto p-3" data-aos="zoom-in">
-            <h1 className="font-bold text-3xl md:text-6xl">Save your link</h1>
-            <p>
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            <h1 className="font-bold text-3xl md:text-6xl">
+              A <span className="text-[#F1B813]">warm</span> <br />
+              Welcome to you
+            </h1>
+            <p className="my-3">
+              We can save here the most used websites in our daily life if we
+              want, So that later we can access all those websites by entering
+              our website.
             </p>
             <Link to="/dashboard/add">
               <button className="bg-[#582FF5] hover:bg-[#262C9C] text-white p-2 md:p-3 my-2 rounded-lg flex items-center">
@@ -48,30 +51,35 @@ const Home = () => {
       </div>
 
       <div className="my-10 text-center py-5">
-        <h1 className="text-2xl my-3">Our Service</h1>
+        <h1 className="text-3xl font-bold my-3">Our Services</h1>
+        <p>
+          We are providing some features which will help our client to make his
+          work easier
+        </p>
         <div className="flex justify-center items-center flex-col md:flex-row">
           <div
-            className="text-center w-11/12 md:w-3/12 p-4 m-3 rounded-md shadow-lg"
-            data-aos="flip-left"
+            className="text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+            data-aos="zoom-in"
           >
-            <img src={link} alt="" className="w-16 mx-auto" />
-            <p className="text-3xl font-bold">Save link</p>
+            <img src={link} alt="" className="w-10 mx-auto" />
+            <p className="text-xl font-bold mt-3">Save link</p>
             <p>You can save your useful links through it</p>
           </div>
+
           <div
-            className="text-center w-11/12 md:w-3/12 p-4 m-3 rounded-md shadow-lg"
-            data-aos="flip-left"
+            className="text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+            data-aos="zoom-in"
           >
-            <img src={click} alt="" className="w-16 mx-auto" />
-            <p className="text-3xl font-bold">Click Count</p>
+            <img src={click} alt="" className="w-10 mx-auto" />
+            <p className="text-xl font-bold mt-3">Most Click</p>
             <p>You will know which link you use the most</p>
           </div>
           <div
-            className="text-center w-11/12 md:w-3/12 p-4 m-3 rounded-md shadow-lg"
-            data-aos="flip-left"
+            className="text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+            data-aos="zoom-in"
           >
-            <img src={money} alt="" className="w-16 mx-auto" />
-            <p className="text-3xl font-bold">Make money</p>
+            <img src={money} alt="" className="w-10 mx-auto" />
+            <p className="text-xl font-bold mt-3">Make money</p>
             <p>You can earn money by clicking on the link</p>
           </div>
         </div>

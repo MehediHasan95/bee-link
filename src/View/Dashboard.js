@@ -1,3 +1,4 @@
+import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 import { faList, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -32,6 +33,7 @@ const Dashboard = () => {
               <span className="mx-3">Profile</span>
             </button>
           </NavLink>
+
           <NavLink
             to="add"
             className={({ isActive }) =>
@@ -43,6 +45,19 @@ const Dashboard = () => {
             <button className="px-5 my-2 w-full flex items-center outline-none">
               <FontAwesomeIcon icon={faList} />
               <span className="mx-3">List</span>
+            </button>
+          </NavLink>
+          <NavLink
+            to="notes"
+            className={({ isActive }) =>
+              isActive
+                ? "bg-white my-2 text-slate-800 flex rounded-md"
+                : "text-white"
+            }
+          >
+            <button className="px-5 my-2 w-full flex items-center outline-none">
+              <FontAwesomeIcon icon={faClipboard} />
+              <span className="mx-3">Notes</span>
             </button>
           </NavLink>
         </div>

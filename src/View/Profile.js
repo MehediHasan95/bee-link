@@ -1,75 +1,36 @@
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/FirebaseConfig";
+import noImage from "../images/noimage.jpg";
 
 const Profile = () => {
   const [user, loading] = useAuthState(auth);
 
-  const { displayName, email, emailVerified, metadata, isAnonymous, uid } =
-    user;
+  const { displayName, email, photoURL, metadata } = user;
 
   return (
     <section>
-      <div
-        className="grid grid-cols-8 md:grid-cols-6 rounded-md overflow-hidden border"
-        data-aos="fade-left"
-      >
-        <div className="col-span-3 md:col-span-1 h-36 md:h-48 overflow-hidden">
+      <div className="demo-bg py-4 text-white">
+        {!loading && photoURL ? (
           <img
-            src={!loading && user?.photoURL}
+            src={photoURL}
             alt="no_image"
-            className="w-full h-full object-cover"
+            className="w-3/12 md:w-1/6 mx-auto rounded-full"
           />
-        </div>
-        <div className="col-span-5 md:col-span-5 h-36 md:h-48 p-3 text-white bg-gray-800">
-          <h1 className="text-3xl md:text-5xl font-bold">
-            {!loading && user?.displayName}
+        ) : (
+          <img
+            src={noImage}
+            alt="no_image"
+            className="w-3/12 md:w-1/6 mx-auto rounded-full border border-gray-400"
+          />
+        )}
+
+        <div className="text-center mt-2">
+          <h1 className="text-xl md:text-3xl font-semibold">
+            {!loading && displayName}
           </h1>
-          <p className="text-sm md:text-base">
-            <FontAwesomeIcon icon={faEnvelope} /> {!loading && user?.email}
-          </p>
-        </div>
-      </div>
-      <div className="p-2" data-aos="fade-up">
-        <p>Profile Information:</p>
-        <hr className="border border-gray-300" />
-        <div className="flex">
-          <div className="w-2/5 md:w-1/5 px-2 text-sm md:text-base">
-            <p className="flex justify-between items-center">
-              <span>Full Name</span>
-              <span>:</span>
-            </p>
-            <p className="flex justify-between items-center">
-              <span>E-mail Address</span>
-              <span>:</span>
-            </p>
-            <p className="flex justify-between items-center">
-              <span>E-mail Verified</span>
-              <span>:</span>
-            </p>
-            <p className="flex justify-between items-center">
-              <span>Anonymous</span>
-              <span>:</span>
-            </p>
-            <p className="flex justify-between items-center">
-              <span>Account Create</span>
-              <span>:</span>
-            </p>
-            <p className="flex justify-between items-center">
-              <span>User ID</span>
-              <span>:</span>
-            </p>
-          </div>
-          <div className="w-4/5 px-2 text-sm md:text-base">
-            <p>{displayName}</p>
-            <p>{email}</p>
-            <p>{emailVerified ? "Yes" : "No"}</p>
-            <p>{isAnonymous ? "Yes" : "No"}</p>
-            <p>{metadata?.creationTime}</p>
-            <p>{uid}</p>
-          </div>
+          <p>{!loading && email}</p>
+          <p>{!loading && metadata?.creationTime}(Since)</p>
         </div>
       </div>
     </section>

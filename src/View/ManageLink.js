@@ -57,7 +57,7 @@ const ManageLink = () => {
               {open && (
                 <button
                   onKeyDown={() => handleManageLink()}
-                  className="mr-1 text-white bg-[#149D4F] rounded-full p-3 w-full md:flex tooltip tooltip-primary"
+                  className="mr-1 text-white bg-[#149D4F] rounded-full p-1 md:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
                   data-aos="zoom-in"
                   data-tip="Done"
                 >
@@ -72,8 +72,8 @@ const ManageLink = () => {
               {open && (
                 <button
                   onClick={() => setOpen(!open)}
-                  className="text-white bg-[#F92D45] rounded-full p-3 w-full md:flex tooltip tooltip-primary"
-                  data-aos="fade-left"
+                  className="text-white bg-[#F92D45] rounded-full p-1 md:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
+                  data-aos="zoom-in"
                   data-tip="Close"
                 >
                   <box-icon name="x" color="white" animation="tada-hover" />
@@ -84,8 +84,8 @@ const ManageLink = () => {
             {!open && (
               <button
                 onClick={() => setOpen(!open)}
-                className="bg-slate-800 text-white hover:bg-[#582FF5] rounded-full p-3 flex tooltip tooltip-primary"
-                data-aos="fade-left"
+                className="bg-[#202020] text-white hover:bg-[#582FF5] rounded-full p-3 flex tooltip tooltip-primary"
+                data-aos="zoom-in"
                 data-tip="Insert your link"
               >
                 <box-icon name="plus" color="white" animation="tada-hover" />

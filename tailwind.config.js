@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Lobster: ["Lobster", "cursive"],
-        Monospace: ["Share Tech Mono", "monospace"],
+        RobotoMono: ["Roboto Mono", "monospace"],
       },
     },
   },

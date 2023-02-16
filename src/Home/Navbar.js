@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-transparent md:absolute">
+    <div className="navbar bg-transparent md:px-10 md:absolute">
       <div className="flex-1">
-        <h1 className="btn btn-ghost normal-case font-Lobster text-xl">
+        <h1 className="btn btn-ghost normal-case font-Lobster text-2xl md:text-3xl">
           <span className="text-[#0D2237]">Bee</span>
           <span className="text-[#582FF5]">Link</span>
         </h1>
@@ -12,10 +13,10 @@ const Navbar = () => {
 
       <ul className="flex px-1">
         <li className="mx-2 cursor-pointer hover:text-[#582FF5] hover:font-bold">
-          <p>About</p>
+          <Link to="/about">About</Link>
         </li>
         <li className="mx-2 cursor-pointer hover:text-[#582FF5] hover:font-bold">
-          <p>Contact</p>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </div>
