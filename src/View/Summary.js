@@ -4,6 +4,7 @@ import useGetLink from "../Hooks/useGetLink";
 import { BeatLoader } from "react-spinners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGem } from "@fortawesome/free-solid-svg-icons";
+import { faHandPointer } from "@fortawesome/free-regular-svg-icons";
 
 const Summary = () => {
   const [getLink] = useGetLink();
@@ -51,7 +52,9 @@ const Summary = () => {
           <span>Number of clicks:</span>
           <span>
             {totalClick}
-            <small className="text-xs">cs</small>
+            <small className="text-xs">
+              <FontAwesomeIcon icon={faHandPointer} />
+            </small>
           </span>
         </p>
 

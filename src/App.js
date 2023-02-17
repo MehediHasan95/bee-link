@@ -14,7 +14,7 @@ import Profile from "./View/Profile";
 
 const App = () => {
   return (
-    <main>
+    <main className="max-w-screen-2xl mx-auto">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

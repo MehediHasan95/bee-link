@@ -102,6 +102,7 @@ const Authentication = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
+
               <input
                 type="password"
                 name="password"
@@ -109,6 +110,7 @@ const Authentication = () => {
                 className="input input-bordered"
                 required
               />
+
               {!toggle && (
                 <label htmlFor="my-modal" className="label">
                   <p className="label-text-alt link link-hover">

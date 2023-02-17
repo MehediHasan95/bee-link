@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-transparent md:px-10 md:absolute">
+    <div className="navbar bg-transparent md:px-10">
       <div className="flex-1">
         <h1 className="btn btn-ghost normal-case font-Lobster text-2xl md:text-3xl">
           <span className="text-[#0D2237]">Bee</span>
