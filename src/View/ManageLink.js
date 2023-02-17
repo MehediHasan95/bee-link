@@ -8,6 +8,7 @@ import { addWebLinkToDB } from "../Database/Database";
 import { auth } from "../Firebase/FirebaseConfig";
 import LinkList from "./LinkList";
 import Summary from "./Summary";
+import { PlusIcon, XMarkIcon, CheckIcon } from "@heroicons/react/24/solid";
 
 const ManageLink = () => {
   const [user] = useAuthState(auth);
@@ -61,11 +62,7 @@ const ManageLink = () => {
                   data-aos="zoom-in"
                   data-tip="Done"
                 >
-                  <box-icon
-                    name="check-double"
-                    color="white"
-                    animation="tada-hover"
-                  />
+                  <CheckIcon className="h-6 w-6" />
                 </button>
               )}
 
@@ -76,7 +73,7 @@ const ManageLink = () => {
                   data-aos="zoom-in"
                   data-tip="Close"
                 >
-                  <box-icon name="x" color="white" animation="tada-hover" />
+                  <XMarkIcon className="h-6 w-6" />
                 </button>
               )}
             </div>
@@ -88,7 +85,7 @@ const ManageLink = () => {
                 data-aos="zoom-in"
                 data-tip="Insert your link"
               >
-                <box-icon name="plus" color="white" animation="tada-hover" />
+                <PlusIcon className="h-6 w-6" />
               </button>
             )}
           </form>
