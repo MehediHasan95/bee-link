@@ -15,10 +15,10 @@ const Home = () => {
   return (
     <section className="bg-base-200">
       <Navbar />
-      <div className="text-slate-800 flex justify-center items-center flex-col md:flex-row">
-        <div className="w-full md:w-3/6">
-          <div className="w-11/12 md:w-3/4 mx-auto p-3" data-aos="zoom-in">
-            <h1 className="font-bold text-3xl md:text-6xl">
+      <div className="text-slate-800 flex justify-center items-center flex-col lg:flex-row">
+        <div className="w-full lg:w-3/6">
+          <div className="w-11/12 lg:w-3/4 mx-auto p-3" data-aos="zoom-in">
+            <h1 className="font-bold text-3xl lg:text-6xl">
               A <span className="text-[#F1B813]">warm</span> <br />
               Welcome to you
             </h1>
@@ -28,14 +28,14 @@ const Home = () => {
               our website.
             </p>
             <Link to="/dashboard/add">
-              <button className="bg-[#582FF5] hover:bg-[#262C9C] text-white p-2 md:p-3 my-2 rounded-lg flex items-center">
+              <button className="bg-[#582FF5] hover:bg-[#262C9C] text-white p-2 lg:p-3 my-2 rounded-lg flex items-center">
                 <FontAwesomeIcon icon={faRocket} />
                 <span className="mx-2">Go Dashboard</span>
               </button>
             </Link>
           </div>
         </div>
-        <div className="w-full md:w-3/6">
+        <div className="w-full lg:w-3/6">
           <div className="carousel w-full" data-aos="zoom-in">
             <div id="item1" className="carousel-item w-full">
               <img src={slide1} alt="" className="w-3/4 mx-auto" />

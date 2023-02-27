@@ -26,22 +26,24 @@ const DeletePopup = ({ deleteItem, user }) => {
           />
           <p className="my-5">
             Also you will lose (
-            <span className="text-[#582FF5] font-bold">{taka}</span>) tk and (
-            <span className="text-[#582FF5] font-bold">{rate}</span>) rating
+            <span className="text-[#582FF5] font-bold">{taka?.toFixed(2)}</span>
+            ) tk and (
+            <span className="text-[#582FF5] font-bold">{rate?.toFixed(2)}</span>
+            ) rating
           </p>
           <h3 className="text-base mb-5">Are you sure?</h3>
           <div className="flex justify-center">
             <button
               onClick={() => confirmDelete(true)}
-              className="py-2 px-3 mx-2 bg-[#E74F5B] hover:bg-[#F52D3A] text-white rounded-lg"
+              className="mx-2 bg-[#E74F5B] hover:bg-[#F52D3A] text-white rounded-lg"
             >
               <label htmlFor="my-modal" className="cursor-pointer">
-                Yes, I'm sure
+                <p className="py-2 px-3">Yes, I'm sure</p>
               </label>
             </button>
-            <button className="py-2 px-3 mx-2 border border-gray-500 hover:bg-[#00DD73] hover:border-[#00DD73] hover:text-white rounded-lg">
+            <button className="mx-2 border border-gray-500 hover:bg-[#00DD73] hover:border-[#00DD73] hover:text-white rounded-lg">
               <label htmlFor="my-modal" className="cursor-pointer">
-                No, cancel
+                <p className="py-2 px-3">No, cancel</p>
               </label>
             </button>
           </div>

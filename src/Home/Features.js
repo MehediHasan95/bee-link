@@ -11,9 +11,9 @@ const Features = () => {
         We are providing some features which will help our client to make his
         work easier
       </p>
-      <div className="flex justify-center items-center flex-col md:flex-row">
+      <div className="flex justify-center items-center flex-col lg:flex-row">
         <div
-          className="bg-white text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+          className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
         >
           <img src={link} alt="" className="w-10 mx-auto" />
@@ -22,7 +22,7 @@ const Features = () => {
         </div>
 
         <div
-          className="bg-white text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+          className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
         >
           <img src={click} alt="" className="w-10 mx-auto" />
@@ -30,7 +30,7 @@ const Features = () => {
           <p>You will know which link you use the most</p>
         </div>
         <div
-          className="bg-white text-center w-11/12 md:w-3/12 py-10 m-3 rounded-md shadow-lg"
+          className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
         >
           <img src={money} alt="" className="w-10 mx-auto" />

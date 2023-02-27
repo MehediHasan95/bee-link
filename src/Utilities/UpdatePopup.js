@@ -18,8 +18,8 @@ const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
 
   return (
     <div>
-      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-      <label htmlFor="my-modal-4" className="modal cursor-pointer">
+      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <label htmlFor="my-modal-5" className="modal cursor-pointer">
         <label className="modal-box relative" htmlFor="">
           <h3 className="text-lg font-bold text-center">Update</h3>
           <form onSubmit={handleCompleteUpdate}>
@@ -43,7 +43,7 @@ const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
             />
 
             <button className="p-2 border my-1 w-full outline-none rounded-md bg-[#582FF5] text-white hover:bg-[#149D4F]">
-              <label htmlFor="my-modal-4" className="cursor-pointer">
+              <label htmlFor="my-modal-5" className="cursor-pointer">
                 Yes, I'm sure
               </label>
             </button>

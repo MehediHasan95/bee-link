@@ -12,19 +12,19 @@ const Dashboard = () => {
   const navigate = useNavigate();
   return (
     <section>
-      <div className="grid grid-cols-1 md:grid-cols-6">
-        <div className="col-span-1 bg-[#202020] text-white max-h-screen md:min-h-screen p-3">
+      <div className="grid grid-cols-1 lg:grid-cols-6">
+        <div className="col-span-1 bg-[#202020] text-white max-h-screen lg:min-h-screen p-3 lg:sticky lg:top-0">
           <div className="text-center text-3xl font-Lobster my-5">
             <span className="text-[#E7E7E7]">Bee</span>
             <span className="text-[#582FF5]">Link</span>
             <p className="text-xs">Always ready</p>
           </div>
-          <hr className="mb-5 hidden md:block" />
+          <hr className="mb-5 hidden lg:block" />
           <NavLink
             to="profile"
             className={({ isActive }) =>
               isActive
-                ? "bg-white my-2  text-slate-800 flex rounded-md"
+                ? "bg-[#582FF5] text-white my-2 flex rounded-md"
                 : "text-white"
             }
           >
@@ -38,20 +38,20 @@ const Dashboard = () => {
             to="add"
             className={({ isActive }) =>
               isActive
-                ? "bg-white my-2 text-slate-800 flex rounded-md"
+                ? "bg-[#582FF5] text-white my-2 flex rounded-md"
                 : "text-white"
             }
           >
             <button className="px-5 my-2 w-full flex items-center outline-none">
               <FontAwesomeIcon icon={faList} />
-              <span className="mx-3">List</span>
+              <span className="mx-3">Save Link</span>
             </button>
           </NavLink>
           <NavLink
             to="notes"
             className={({ isActive }) =>
               isActive
-                ? "bg-white my-2 text-slate-800 flex rounded-md"
+                ? "bg-[#582FF5] text-white my-2 flex rounded-md"
                 : "text-white"
             }
           >
@@ -61,9 +61,9 @@ const Dashboard = () => {
             </button>
           </NavLink>
         </div>
-        <div className="col-span-1 md:col-span-5 bg-[#E5E4E9] min-h-screen">
+        <div className="col-span-1 lg:col-span-5 bg-[#E5E4E9] min-h-screen">
           <div className="p-3 bg-white flex justify-between">
-            <h1 className="text-base md:text-xl">
+            <h1 className="text-base lg:text-xl">
               Welcome to{" "}
               <span className="text-[#582FF5] font-bold">
                 {!loading && user.displayName}

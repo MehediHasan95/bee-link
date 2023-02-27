@@ -52,9 +52,7 @@ const Summary = () => {
           <span>Number of clicks:</span>
           <span>
             {totalClick}
-            <small className="text-xs">
-              <FontAwesomeIcon icon={faHandPointer} />
-            </small>
+            <small className="text-xs">ts</small>
           </span>
         </p>
 

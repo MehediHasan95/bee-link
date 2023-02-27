@@ -32,15 +32,15 @@ const ManageLink = () => {
 
   return (
     <section>
-      <div className="grid grid-cols-1 md:grid-cols-7">
-        <div className="col-span-1 md:col-span-5 px-2">
-          <form onSubmit={handleManageLink} className="block md:flex">
+      <div className="grid grid-cols-1 lg:grid-cols-7">
+        <div className="col-span-1 lg:col-span-5 px-2">
+          <form onSubmit={handleManageLink} className="block lg:flex">
             {open && (
               <input
                 type="text"
                 name="name"
-                className="p-2 mr-1 mb-2 md:mb-0 rounded-xl outline-none block w-full"
-                placeholder="Name"
+                className="p-2 mr-1 mb-2 lg:mb-0 rounded-xl outline-none block w-full"
+                placeholder="Website name"
                 data-aos="flip-left"
               />
             )}
@@ -48,7 +48,7 @@ const ManageLink = () => {
               <input
                 type="text"
                 name="weblink"
-                className="p-2 mr-1 mb-2 md:mb-0 rounded-xl outline-none block w-full"
+                className="p-2 mr-1 mb-2 lg:mb-0 rounded-xl outline-none block w-full"
                 placeholder="https://www."
                 data-aos="flip-right"
               />
@@ -58,7 +58,7 @@ const ManageLink = () => {
               {open && (
                 <button
                   onKeyDown={() => handleManageLink()}
-                  className="mr-1 text-white bg-[#149D4F] rounded-full p-1 md:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
+                  className="mr-1 text-white bg-[#149D4F] rounded-full p-1 lg:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
                   data-aos="zoom-in"
                   data-tip="Done"
                 >
@@ -69,7 +69,7 @@ const ManageLink = () => {
               {open && (
                 <button
                   onClick={() => setOpen(!open)}
-                  className="text-white bg-[#F92D45] rounded-full p-1 md:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
+                  className="text-white bg-[#F92D45] rounded-full p-1 lg:p-3 w-full flex justify-center items-center tooltip tooltip-primary"
                   data-aos="zoom-in"
                   data-tip="Close"
                 >
@@ -113,7 +113,7 @@ const ManageLink = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 md:col-span-2 p-5 rounded-lg bg-white h-min">
+        <div className="col-span-1 lg:col-span-2 p-5 rounded-lg bg-white h-min">
           <Summary />
         </div>
       </div>

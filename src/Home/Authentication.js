@@ -66,8 +66,8 @@ const Authentication = () => {
 
   return (
     <section>
-      <div className="flex gap-2 justify-center items-center flex-col md:flex-row min-h-screen bg-base-200">
-        <div className="card w-11/12 md:w-3/6 max-w-sm shadow-2xl bg-base-100">
+      <div className="flex gap-2 justify-center items-center flex-col lg:flex-row min-h-screen bg-base-200">
+        <div className="card w-11/12 lg:w-3/6 max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleAuthentication} className="card-body">
             <p className="text-center text-xl">
               {toggle ? "Create an account" : "Login"}
@@ -138,8 +138,8 @@ const Authentication = () => {
             </p>
           </form>
         </div>
-        <div className="w-11/12 md:w-3/6 text-center p-2">
-          <div className="hidden md:block">
+        <div className="w-11/12 lg:w-3/6 text-center p-2">
+          <div className="hidden lg:block">
             <h1 className="text-5xl font-bold">
               {toggle ? "Welcome back!" : "Hello, Friend!"}
             </h1>
@@ -151,7 +151,7 @@ const Authentication = () => {
           </div>
           <button
             onClick={() => signInWithGoogle()}
-            className="w-10/12 md:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#202020] duration-300 hover:duration-300 hover:text-white"
+            className="w-10/12 lg:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#202020] duration-300 hover:duration-300 hover:text-white"
           >
             <img src={googleicon} alt="" className="w-6 mr-2" />
             <span>Continue with Google</span>

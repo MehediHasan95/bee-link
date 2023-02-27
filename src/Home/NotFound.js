@@ -12,7 +12,7 @@ const NotFound = () => {
   return (
     <section className="bg-[#f7cacd] min-h-screen flex justify-center items-center">
       <div className="text-center">
-        <img src={notfound} alt="" className="w-3/4 md:w-2/5 mx-auto" />
+        <img src={notfound} alt="" className="w-3/4 lg:w-2/5 mx-auto" />
         <button
           onClick={() => navigate(from, { replace: true })}
           className="bg-[#582FF5] hover:bg-[#202020] text-white px-3 py-2 rounded-md"

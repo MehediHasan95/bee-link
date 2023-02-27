@@ -15,18 +15,18 @@ const Profile = () => {
           <img
             src={photoURL}
             alt="no_image"
-            className="w-3/12 md:w-1/6 mx-auto rounded-full"
+            className="w-3/12 lg:w-1/6 mx-auto rounded-full"
           />
         ) : (
           <img
             src={noImage}
             alt="no_image"
-            className="w-3/12 md:w-1/6 mx-auto rounded-full border border-gray-400"
+            className="w-3/12 lg:w-1/6 mx-auto rounded-full border border-gray-400"
           />
         )}
 
         <div className="text-center mt-2">
-          <h1 className="text-xl md:text-3xl font-semibold">
+          <h1 className="text-xl lg:text-3xl font-semibold">
             {!loading && displayName}
           </h1>
           <p>{!loading && email}</p>

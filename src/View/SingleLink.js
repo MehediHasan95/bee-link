@@ -13,7 +13,9 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
   return (
     <div
       className="most-use-list relative bg-white text-slate-800 shadow duration-200 hover:shadow-xl hover:duration-200 rounded-md p-3 m-1 text-center cursor-pointer "
-      data-aos="zoom-out"
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1500"
     >
       <p>
         <a
@@ -34,8 +36,9 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
         onClick={() => updateRating(id, rate, click, taka, user)}
         href={weblink}
         target="_blank"
-        className="text-xl font-semibold hover:underline text-[#582FF5]"
+        className="text-xl font-semibold hover:underline text-[#582FF5] tooltip tooltip-primary"
         rel="noreferrer"
+        data-tip={name}
       >
         {name.length > 15 ? name.slice(0, 11) + ".." : name}
       </a>
@@ -43,7 +46,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
 
       <div className="mt-3">
         <label
-          htmlFor="my-modal-4"
+          htmlFor="my-modal-5"
           onClick={() => handleFindOne(id)}
           title="Edit"
           className="mx-2 cursor-pointer text-[#00DD73]"
