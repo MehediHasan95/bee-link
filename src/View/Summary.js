@@ -4,7 +4,6 @@ import useGetLink from "../Hooks/useGetLink";
 import { BeatLoader } from "react-spinners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGem } from "@fortawesome/free-solid-svg-icons";
-import { faHandPointer } from "@fortawesome/free-regular-svg-icons";
 
 const Summary = () => {
   const [getLink] = useGetLink();
