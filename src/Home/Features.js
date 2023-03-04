@@ -1,5 +1,5 @@
 import React from "react";
-import link from "../images/link.png";
+import link from "../images/logo.png";
 import money from "../images/money.png";
 import click from "../images/click.png";
 

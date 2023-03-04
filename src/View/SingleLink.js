@@ -11,10 +11,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
   const { id, name, rate, click, taka, weblink } = single;
 
   return (
-    <div
-      className="most-use-list relative bg-white text-slate-800 shadow duration-200 hover:shadow-xl hover:duration-200 rounded-md p-3 m-1 text-center cursor-pointer "
-      data-aos="flip-left"
-    >
+    <div className="most-use-list relative bg-white text-slate-800 shadow duration-200 hover:shadow-xl hover:duration-200 rounded-md p-3 m-1 text-center cursor-pointer ">
       <p>
         <a
           onClick={() => updateRating(id, rate, click, taka, user)}

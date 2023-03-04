@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { GlobalContext } from "../Context/ContextProvider";
 import { addNotesToDB, deleteNoteItemFromDB } from "../Database/Database";
 import SingleNote from "./SingleNote";
 import noresult from "../images/noresult.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Notes = () => {
   const { user, time, getNotes } = useContext(GlobalContext);
+  const [toggle, setToggle] = useState(false);
 
   const handleNotes = (e) => {
     e.preventDefault();
@@ -28,23 +31,36 @@ const Notes = () => {
   return (
     <section>
       <form onSubmit={handleNotes}>
-        <input
-          type="text"
-          name="title"
-          className="p-3 mb-2 rounded-xl outline-none block w-full"
-          placeholder="Title"
-          required
-        />
-        <textarea
-          name="note"
-          rows="3"
-          className="p-3 mb-2 rounded-xl outline-none block w-full"
-          placeholder="Write your note..."
-          required
-        ></textarea>
-        <button className="bg-hanPurple text-white p-2 rounded-xl outline-none block w-full">
-          Submit
-        </button>
+        {toggle && (
+          <>
+            <input
+              type="text"
+              name="title"
+              className="p-3 mb-2 rounded-xl outline-none block w-full"
+              placeholder="Title"
+              required
+            />
+            <textarea
+              name="note"
+              rows="3"
+              className="p-3 mb-2 rounded-xl outline-none block w-full"
+              placeholder="Write your note..."
+              required
+            ></textarea>
+            <button className="bg-hanPurple text-white p-2 rounded-xl outline-none block w-full">
+              Submit
+            </button>
+          </>
+        )}
+        {!toggle && (
+          <button
+            onClick={() => setToggle(!toggle)}
+            className="bg-gray-400 hover:bg-hanPurple text-white p-2 rounded-xl outline-none block w-full"
+          >
+            <span>Save Note</span>
+            <FontAwesomeIcon icon={faCloudArrowUp} className="mx-2" />
+          </button>
+        )}
       </form>
 
       <div>
