@@ -46,9 +46,8 @@ const Dashboard = () => {
             <div>
               <button
                 onClick={() => signOut()}
-                className="w-full hover:text-paradisePink"
+                className="w-full text-paradisePink hover:text-hanPurple"
               >
-                Sign Out{" "}
                 <FontAwesomeIcon
                   icon={faSignOut}
                   onClick={() => navigate("/")}
@@ -96,14 +95,13 @@ const Dashboard = () => {
               </div>
               <div className="hidden lg:block">
                 <button
-                  onClick={() => signOut()}
-                  className="w-full hover:text-paradisePink"
+                  onClick={() => {
+                    signOut();
+                    navigate("/");
+                  }}
+                  className="w-full text-paradisePink hover:text-hanPurple"
                 >
-                  Sign Out{" "}
-                  <FontAwesomeIcon
-                    icon={faSignOut}
-                    onClick={() => navigate("/")}
-                  />
+                  Logout
                 </button>
               </div>
             </div>

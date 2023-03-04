@@ -85,21 +85,8 @@ const ManageLink = () => {
             )}
           </form>
           <div className="my-3">
-            <div className="py-1 flex justify-end">
-              <p>
-                <FontAwesomeIcon icon={faFilter} />
-                <select
-                  name="sort"
-                  className="bg-transparent outline-none text-sm"
-                >
-                  <option value="top" selected disabled>
-                    Filter
-                  </option>
-                  <option value="top">HIGH</option>
-                  <option value="top">LOW</option>
-                  <option value="top">MIDIUM</option>
-                </select>
-              </p>
+            <div className="py-1">
+              <hr />
             </div>
             <div className="my-2">
               <LinkList />
