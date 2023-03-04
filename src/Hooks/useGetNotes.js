@@ -1,25 +1,24 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 import { auth, db } from "../Firebase/FirebaseConfig";
 
-const useGetLink = () => {
+const useGetNotes = () => {
   const [user] = useAuthState(auth);
-  const [getLink, setGetLink] = useState([]);
+  const [getNotes, setGetNotes] = useState([]);
 
   useEffect(() => {
     onSnapshot(
       query(
-        collection(db, `webLinkCollection/${user?.uid}/list`),
-        orderBy("rate", "desc")
+        collection(db, `notesCollection/${user?.uid}/list`),
+        orderBy("time", "desc")
       ),
       (snapshot) => {
-        setGetLink(snapshot.docs.map((e) => e.data()));
+        setGetNotes(snapshot.docs.map((e) => e.data()));
       }
     );
   }, [user?.uid]);
-  return [getLink, setGetLink];
+  return [getNotes, setGetNotes];
 };
 
-export default useGetLink;
+export default useGetNotes;

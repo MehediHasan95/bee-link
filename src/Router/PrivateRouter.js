@@ -15,7 +15,17 @@ const PrivateRoute = ({ children }) => {
       </div>
     );
   } else if (user) {
-    return children;
+    if (user.emailVerified) {
+      return children;
+    } else {
+      return (
+        <Navigate
+          to="/authentication"
+          state={{ from: location }}
+          replace
+        ></Navigate>
+      );
+    }
   } else {
     return (
       <Navigate

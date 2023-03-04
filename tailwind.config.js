@@ -7,6 +7,23 @@ module.exports = {
         Lobster: ["Lobster", "cursive"],
         RobotoMono: ["Roboto Mono", "monospace"],
       },
+      colors: {
+        hanPurple: "#582FF5",
+        raisinBlack: "#202020",
+        deepPink: "#F52D3A",
+        malachite: "#00DD73",
+        paradisePink: "#E74F5B",
+      },
+      backgroundColor: {
+        hanPurple: "#582FF5",
+        raisinBlack: "#202020",
+        deepPink: "#F52D3A",
+        malachite: "#00DD73",
+        paradisePink: "#E74F5B",
+      },
+      minHeight: {
+        49: " calc(100vh - 20vh)",
+      },
     },
   },
   daisyui: {

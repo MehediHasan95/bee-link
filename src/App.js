@@ -10,11 +10,10 @@ import PrivateRoute from "./Router/PrivateRouter";
 import Dashboard from "./View/Dashboard";
 import ManageLink from "./View/ManageLink";
 import Notes from "./View/Notes";
-import Profile from "./View/Profile";
 
 const App = () => {
   return (
-    <main className="max-w-screen-2xl mx-auto">
+    <main className="max-w-screen-2xl mx-auto text-slate-800">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -26,9 +25,9 @@ const App = () => {
           }
         >
           <Route path="add" element={<ManageLink />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="notes" element={<Notes />} />
         </Route>
+
         <Route path="/authentication" element={<Authentication />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

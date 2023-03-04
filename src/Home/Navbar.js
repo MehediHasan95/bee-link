@@ -7,15 +7,15 @@ const Navbar = () => {
       <div className="flex-1">
         <h1 className="btn btn-ghost normal-case font-Lobster text-2xl lg:text-3xl">
           <span className="text-[#0D2237]">Bee</span>
-          <span className="text-[#582FF5]">Link</span>
+          <span className="text-hanPurple">Link</span>
         </h1>
       </div>
 
       <ul className="flex px-1">
-        <li className="mx-2 cursor-pointer hover:text-[#582FF5] hover:font-bold">
+        <li className="mx-2 cursor-pointer hover:text-hanPurple hover:font-bold">
           <Link to="/about">About</Link>
         </li>
-        <li className="mx-2 cursor-pointer hover:text-[#582FF5] hover:font-bold">
+        <li className="mx-2 cursor-pointer hover:text-hanPurple hover:font-bold">
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

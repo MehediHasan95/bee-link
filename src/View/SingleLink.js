@@ -14,8 +14,6 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
     <div
       className="most-use-list relative bg-white text-slate-800 shadow duration-200 hover:shadow-xl hover:duration-200 rounded-md p-3 m-1 text-center cursor-pointer "
       data-aos="flip-left"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="1500"
     >
       <p>
         <a
@@ -36,7 +34,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
         onClick={() => updateRating(id, rate, click, taka, user)}
         href={weblink}
         target="_blank"
-        className="text-xl font-semibold hover:underline text-[#582FF5] tooltip tooltip-primary"
+        className="text-xl font-semibold hover:underline text-hanPurple tooltip tooltip-primary"
         rel="noreferrer"
         data-tip={name}
       >
@@ -49,7 +47,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
           htmlFor="my-modal-5"
           onClick={() => handleFindOne(id)}
           title="Edit"
-          className="mx-2 cursor-pointer text-[#00DD73]"
+          className="mx-2 cursor-pointer text-malachite"
         >
           <FontAwesomeIcon
             icon={faPenToSquare}
@@ -61,7 +59,7 @@ const SingleLink = ({ single, user, handleDeleteItem, handleFindOne }) => {
           htmlFor="my-modal"
           onClick={() => handleDeleteItem(single)}
           title="Delete"
-          className="mx-2 cursor-pointer text-[#F52D3A]"
+          className="mx-2 cursor-pointer text-deepPink"
         >
           <FontAwesomeIcon
             icon={faTrash}

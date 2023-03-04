@@ -47,4 +47,30 @@ const deleteItemFromDB = async (user, id) => {
   await deleteDoc(doc(db, `webLinkCollection/${user?.uid}/list`, id));
 };
 
-export { addWebLinkToDB, deleteItemFromDB, updateRating, updateInformation };
+// Item delete operation
+const deleteNoteItemFromDB = async (user, id) => {
+  await deleteDoc(doc(db, `notesCollection/${user?.uid}/list`, id));
+};
+
+// Save notes
+const addNotesToDB = async (title, notes, time, user) => {
+  const collectionName = `notesCollection/${user?.uid}/list`;
+  const success = await addDoc(collection(db, collectionName), {
+    title: title,
+    note: notes,
+    time: time,
+  });
+  await updateDoc(doc(db, collectionName, success.id), {
+    id: success.id,
+  });
+  return success;
+};
+
+export {
+  addWebLinkToDB,
+  deleteItemFromDB,
+  updateRating,
+  updateInformation,
+  addNotesToDB,
+  deleteNoteItemFromDB,
+};

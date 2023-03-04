@@ -131,7 +131,7 @@ const Authentication = () => {
               {toggle ? "Already member?" : "Don't have any account?"}{" "}
               <span
                 onClick={() => setToggle(!toggle)}
-                className="underline hover:text-[#582FF5] cursor-pointer"
+                className="underline hover:text-hanPurple cursor-pointer"
               >
                 {toggle ? "Login" : "Register"}
               </span>
@@ -151,14 +151,14 @@ const Authentication = () => {
           </div>
           <button
             onClick={() => signInWithGoogle()}
-            className="w-10/12 lg:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-[#202020] duration-300 hover:duration-300 hover:text-white"
+            className="w-10/12 lg:w-3/6 p-2 mt-3 mb-8 flex justify-center items-center  mx-auto bg-white shadow hover:shadow-lg rounded-full hover:bg-raisinBlack duration-300 hover:duration-300 hover:text-white"
           >
             <img src={googleicon} alt="" className="w-6 mr-2" />
             <span>Continue with Google</span>
           </button>
           <button
             onClick={() => navigate("/")}
-            className="block mx-auto text-[#582FF5] font-bold hover:text-[#FD1D46] duration-300 hover:-translate-x-2 hover:duration-300"
+            className="block mx-auto text-hanPurple font-bold hover:text-[#FD1D46] duration-300 hover:-translate-x-2 hover:duration-300"
           >
             <FontAwesomeIcon icon={faAnglesLeft} /> Go back
           </button>

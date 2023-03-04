@@ -1,13 +1,10 @@
-import moment from "moment";
-import React, { useState } from "react";
-import useGetLink from "../Hooks/useGetLink";
-import { BeatLoader } from "react-spinners";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGem } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
+import robot from "../images/robot.png";
+import { GlobalContext } from "../Context/ContextProvider";
 
 const Summary = () => {
-  const [getLink] = useGetLink();
-  const [today, setToday] = useState("");
+  const { getLink, user, loading } = useContext(GlobalContext);
+  const { email, displayName, photoURL, metadata } = user;
 
   let totalGems = 0.0;
   let totalClick = 0.0;
@@ -26,29 +23,50 @@ const Summary = () => {
     totalTaka = tSum.toFixed(2);
   }
 
-  setInterval(() => {
-    setToday(moment().format("DD MMM YYYY hh:mm:ss A"));
-  }, 1000);
-
   return (
     <section>
-      <h1 className="text-center text-xl">
-        {today ? today : <BeatLoader color="#582FF5" />}
-      </h1>
-      <div className="text-center text-slate-800 my-5">
-        <div
-          title="Number of gems"
-          className="flex justify-center items-center"
-        >
-          <span className="text-3xl mr-1 font-semibold text-[#582FF5]">
-            {totalGems}
-          </span>
-          <FontAwesomeIcon icon={faGem} className="text-[#582FF5] text-xl" />
-        </div>
+      <div className="text-center">
+        {!loading && photoURL ? (
+          <div className="w-3/12 lg:w-2/6 mx-auto rounded-full overflow-hidden">
+            <img
+              src={photoURL}
+              alt="no_image"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ) : (
+          <div className="w-3/12 lg:w-2/6 mx-auto rounded-full overflow-hidden">
+            <img
+              src={robot}
+              alt="no_image"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        )}
+        <h1 className="text-xl font-semibold text-hanPurple  mt-3">
+          {!loading && displayName}
+        </h1>
       </div>
+      <hr className="my-3" />
+
       <div className="w-11/12 mx-auto">
         <p className="flex justify-between">
-          <span>Number of clicks:</span>
+          <span className="flex">Email:</span>
+          <small>{email}</small>
+        </p>
+
+        <p className="flex justify-between">
+          <span className="flex">Since:</span>
+          <span>{metadata?.creationTime.slice(0, 17)}</span>
+        </p>
+        <hr className="my-3" />
+        <p className="flex justify-between">
+          <span className="flex">Diamond</span>
+          <span>{totalGems}</span>
+        </p>
+
+        <p className="flex justify-between">
+          <span className="flex">Total Clicks</span>
           <span>
             {totalClick}
             <small className="text-xs">ts</small>
@@ -56,11 +74,16 @@ const Summary = () => {
         </p>
 
         <p className="flex justify-between">
-          <span>Money:</span>
+          <span className="flex">Money</span>
           <span>
             {totalTaka}
             <small className="text-xs">tk</small>
           </span>
+        </p>
+        <p className="text-right">
+          <small className="text-xs hover:underline hover:text-hanPurple cursor-pointer">
+            Withdraw
+          </small>
         </p>
       </div>
     </section>

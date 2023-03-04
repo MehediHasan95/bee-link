@@ -42,7 +42,7 @@ const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
               placeholder="https://www."
             />
 
-            <button className="p-2 border my-1 w-full outline-none rounded-md bg-[#582FF5] text-white hover:bg-[#149D4F]">
+            <button className="p-2 border my-1 w-full outline-none rounded-md bg-hanPurple text-white hover:bg-[#149D4F]">
               <label htmlFor="my-modal-5" className="cursor-pointer">
                 Yes, I'm sure
               </label>

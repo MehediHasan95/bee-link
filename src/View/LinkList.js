@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/FirebaseConfig";
-import useGetLink from "../Hooks/useGetLink";
 import SingleLink from "./SingleLink";
 import noresult from "../images/noresult.png";
 import UpdatePopup from "../Utilities/UpdatePopup";
 import DeletePopup from "../Utilities/DeletePopup";
+import { GlobalContext } from "../Context/ContextProvider";
 
 const LinkList = () => {
   const [user] = useAuthState(auth);
-  const [getLink] = useGetLink();
+  const { getLink } = useContext(GlobalContext);
   const [findOne, setFindOne] = useState({});
   const [deleteItem, setDeleteItem] = useState({});
 
