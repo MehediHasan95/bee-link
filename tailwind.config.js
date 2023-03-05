@@ -24,6 +24,9 @@ module.exports = {
       minHeight: {
         49: " calc(100vh - 20vh)",
       },
+      maxWidth: {
+        screen4xl: "1920px",
+      },
     },
   },
   daisyui: {

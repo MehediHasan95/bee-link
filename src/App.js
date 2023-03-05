@@ -13,7 +13,7 @@ import Notes from "./View/Notes";
 
 const App = () => {
   return (
-    <main className="max-w-screen-2xl mx-auto text-slate-800">
+    <main className="max-w-screen4xl mx-auto text-slate-800">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
