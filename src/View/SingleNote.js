@@ -33,21 +33,23 @@ const SingleNote = ({ notes, handleDeleteNote }) => {
           />
         </div>
       </div>
-      <p className="cursor-copy">
-        {readMore.length >= 250 ? (
-          <>
-            {readMore}
-            <span
-              onClick={() => setToggle(!toggle)}
-              className="text-paradisePink font-bold hover:underline mx-2"
-            >
-              {toggle ? "read less" : "read more"}
-            </span>
-          </>
-        ) : (
-          readMore
-        )}
-      </p>
+      <pre className="cursor-copy">
+        <code className="font-RobotoMono">
+          {readMore.length >= 250 ? (
+            <>
+              {readMore}
+              <span
+                onClick={() => setToggle(!toggle)}
+                className="text-paradisePink font-bold hover:underline mx-2 cursor-pointer"
+              >
+                {toggle ? "read less" : "read more"}
+              </span>
+            </>
+          ) : (
+            readMore
+          )}
+        </code>
+      </pre>
       <small className="text-hanPurple">{time}</small>
     </div>
   );

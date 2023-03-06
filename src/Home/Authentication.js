@@ -40,9 +40,7 @@ const Authentication = () => {
               displayName: displayName,
             });
             sendEmailVerification(auth.currentUser).then(() => {
-              toast.success(
-                "A verification link has been sent to your email account"
-              );
+              toast.success("Please check your mail");
             }, setToggle(false));
           }
         })

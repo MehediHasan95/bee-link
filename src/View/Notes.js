@@ -40,13 +40,17 @@ const Notes = () => {
               placeholder="Title"
               required
             />
-            <textarea
-              name="note"
-              rows="3"
-              className="p-3 mb-2 rounded-xl outline-none block w-full"
-              placeholder="Write your note..."
-              required
-            ></textarea>
+            <pre>
+              <code className="font-RobotoMono">
+                <textarea
+                  name="note"
+                  rows="3"
+                  className="p-3 mb-2 rounded-xl outline-none block w-full"
+                  placeholder="Write your note..."
+                  required
+                ></textarea>
+              </code>
+            </pre>
             <button className="bg-hanPurple text-white p-2 rounded-xl outline-none block w-full">
               Submit
             </button>
