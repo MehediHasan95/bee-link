@@ -13,6 +13,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 body::-webkit-scrollbar {
   width: 0.4em;
 }

@@ -34,13 +34,19 @@ const DeletePopup = ({ deleteItem, user }) => {
               onClick={() => confirmDelete(true)}
               className="mx-2 bg-[#E74F5B] hover:bg-[#F52D3A] text-white rounded-lg"
             >
-              <label htmlFor="my-modal" className="cursor-pointer">
-                <p className="py-2 px-3">Yes, I'm sure</p>
+              <label
+                htmlFor="my-modal"
+                className="cursor-pointer inline-block py-2 px-3"
+              >
+                Yes, I'm sure
               </label>
             </button>
             <button className="mx-2 border border-gray-500 hover:bg-malachite hover:border-malachite hover:text-white rounded-lg">
-              <label htmlFor="my-modal" className="cursor-pointer">
-                <p className="py-2 px-3">No, cancel</p>
+              <label
+                htmlFor="my-modal"
+                className="cursor-pointer inline-block py-2 px-3"
+              >
+                No, cancel
               </label>
             </button>
           </div>

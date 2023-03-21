@@ -101,7 +101,7 @@ const Dashboard = () => {
                   }}
                   className="w-full text-paradisePink hover:text-hanPurple"
                 >
-                  Logout
+                  Log Out
                 </button>
               </div>
             </div>

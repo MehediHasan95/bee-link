@@ -43,7 +43,7 @@ const Summary = () => {
             />
           </div>
         )}
-        <h1 className="text-xl font-semibold text-hanPurple  mt-3">
+        <h1 className="text-xl font-semibold text-hanPurple mt-3">
           {!loading && displayName}
         </h1>
       </div>
@@ -52,7 +52,7 @@ const Summary = () => {
       <div className="w-11/12 mx-auto">
         <p className="flex justify-between">
           <span className="flex">Email:</span>
-          <small>{email}</small>
+          <p>{email}</p>
         </p>
 
         <p className="flex justify-between">
