@@ -1,15 +1,19 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { GlobalContext } from "../Context/ContextProvider";
-import { addNotesToDB, deleteNoteItemFromDB } from "../Database/Database";
+import { addNotesToDB } from "../Database/Database";
 import SingleNote from "./SingleNote";
 import noresult from "../images/noresult.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
+import DeleteNotesPopup from "../Utilities/DeleteNotesPopup";
+import UpdateNotesPopup from "../Utilities/UpdateNotesPopup";
 
 const Notes = () => {
   const { user, time, getNotes } = useContext(GlobalContext);
   const [toggle, setToggle] = useState(false);
+  const [findOne, setFindOne] = useState({});
+  const [deleteItem, setDeleteItem] = useState({});
 
   const handleNotes = (e) => {
     e.preventDefault();
@@ -24,8 +28,14 @@ const Notes = () => {
     }
   };
 
-  const handleDeleteNote = (id) => {
-    deleteNoteItemFromDB(user, id);
+  // Delete method
+  const handleDeleteNote = (notes) => {
+    setDeleteItem(notes);
+  };
+
+  // Update method
+  const handleFindOne = (id) => {
+    setFindOne(getNotes.find((e) => e.id === id));
   };
 
   return (
@@ -75,6 +85,7 @@ const Notes = () => {
                 key={note.id}
                 notes={note}
                 handleDeleteNote={handleDeleteNote}
+                handleFindOne={handleFindOne}
               />
             ))}
           </div>
@@ -84,6 +95,13 @@ const Notes = () => {
           </div>
         )}
       </div>
+
+      <UpdateNotesPopup
+        updateItem={findOne}
+        setUpdateItem={setFindOne}
+        user={user}
+      />
+      <DeleteNotesPopup deleteItem={deleteItem} user={user} />
     </section>
   );
 };

@@ -66,6 +66,15 @@ const addNotesToDB = async (title, notes, time, user) => {
   return success;
 };
 
+//Update information operation
+const updateNotesInformation = async (user, updateItem) => {
+  const collectionName = `notesCollection/${user?.uid}/list`;
+  await updateDoc(doc(db, collectionName, updateItem.id), {
+    title: updateItem.title,
+    note: updateItem.note,
+  });
+};
+
 export {
   addWebLinkToDB,
   deleteItemFromDB,
@@ -73,4 +82,5 @@ export {
   updateInformation,
   addNotesToDB,
   deleteNoteItemFromDB,
+  updateNotesInformation,
 };

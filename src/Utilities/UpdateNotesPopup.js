@@ -1,14 +1,14 @@
 import React from "react";
 import { updateNotesInformation } from "../Database/Database";
 
-const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
+const UpdateNotesPopup = ({ updateItem, setUpdateItem, user }) => {
   const handleEditName = (e) => {
-    const { name, ...rest } = updateItem;
-    setUpdateItem({ name: e, ...rest });
+    const { title, ...rest } = updateItem;
+    setUpdateItem({ title: e, ...rest });
   };
   const handleEditWeblink = (e) => {
-    const { weblink, ...rest } = updateItem;
-    setUpdateItem({ weblink: e, ...rest });
+    const { note, ...rest } = updateItem;
+    setUpdateItem({ note: e, ...rest });
   };
 
   const handleCompleteUpdate = (e) => {
@@ -23,21 +23,21 @@ const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
         <label className="modal-box relative" htmlFor="">
           <h3 className="text-lg font-bold text-center">Update</h3>
           <form onSubmit={handleCompleteUpdate}>
-            <label className="text-sm px-2">Name</label>
+            <label className="text-sm px-2">Title</label>
             <input
               onChange={(e) => handleEditName(e.target.value)}
               type="text"
-              name="title"
-              value={updateItem.name}
+              name="name"
+              value={updateItem.title}
               className="p-2 mb-3 border w-full outline-none rounded-md"
               placeholder="Name"
             />
-            <label className="text-sm px-2">Web Link</label>
-            <input
+            <label className="text-sm px-2">Notes</label>
+            <textarea
               onChange={(e) => handleEditWeblink(e.target.value)}
               type="text"
-              name="note"
-              value={updateItem.weblink}
+              name="weblink"
+              value={updateItem.note}
               className="p-2 border mb-3 w-full outline-none rounded-md"
               placeholder="https://www."
             />
@@ -57,4 +57,4 @@ const UpdatePopup = ({ updateItem, setUpdateItem, user }) => {
   );
 };
 
-export default UpdatePopup;
+export default UpdateNotesPopup;

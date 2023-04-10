@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import robot from "../images/robot.png";
 import { GlobalContext } from "../Context/ContextProvider";
+import moment from "moment";
 
 const Summary = () => {
   const { getLink, user, loading } = useContext(GlobalContext);
@@ -43,23 +44,17 @@ const Summary = () => {
             />
           </div>
         )}
-        <h1 className="text-xl font-semibold text-hanPurple mt-3">
+        <h1 className="text-xl font-semibold text-hanPurple my-3">
           {!loading && displayName}
         </h1>
+        <p className="text-sm">{email}</p>
+        <p className="text-sm">
+          Since, {moment(metadata?.creationTime).format("D MMM YYYY")}
+        </p>
       </div>
       <hr className="my-3" />
 
       <div className="w-11/12 mx-auto">
-        <p className="flex justify-between">
-          <span className="flex">Email:</span>
-          <p>{email}</p>
-        </p>
-
-        <p className="flex justify-between">
-          <span className="flex">Since:</span>
-          <span>{metadata?.creationTime.slice(0, 17)}</span>
-        </p>
-        <hr className="my-3" />
         <p className="flex justify-between">
           <span className="flex">Diamond</span>
           <span>{totalGems}</span>
@@ -74,16 +69,11 @@ const Summary = () => {
         </p>
 
         <p className="flex justify-between">
-          <span className="flex">Money</span>
+          <span className="flex">Earn</span>
           <span>
             {totalTaka}
             <small className="text-xs">tk</small>
           </span>
-        </p>
-        <p className="text-right">
-          <small className="text-xs hover:underline hover:text-hanPurple cursor-pointer">
-            Withdraw
-          </small>
         </p>
       </div>
     </section>

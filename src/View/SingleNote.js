@@ -1,8 +1,9 @@
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 
-const SingleNote = ({ notes, handleDeleteNote }) => {
+const SingleNote = ({ notes, handleDeleteNote, handleFindOne }) => {
   const { id, title, note, time } = notes;
 
   const [readMore, setReadMore] = useState("");
@@ -21,16 +22,29 @@ const SingleNote = ({ notes, handleDeleteNote }) => {
       <div className="flex justify-between items-center">
         <h1 className="text-xl text-hanPurple">{title}</h1>
         <div>
-          <FontAwesomeIcon
-            // onClick={() => handleDeleteNote(id)}
-            icon={faPenToSquare}
-            className="text-malachite hover:scale-125 duration-300 hover:duration-300 cursor-pointer mx-3"
-          />
-          <FontAwesomeIcon
-            onClick={() => handleDeleteNote(id)}
-            icon={faTrash}
-            className="text-deepPink hover:scale-125 duration-300 hover:duration-300 cursor-pointer"
-          />
+          <label
+            htmlFor="my-modal-5"
+            onClick={() => handleFindOne(id)}
+            title="Edit"
+            className="mx-2 cursor-pointer text-malachite"
+          >
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              className="hover:scale-125 duration-300 hover:duration-300"
+            />
+          </label>
+
+          <label
+            htmlFor="my-modal"
+            onClick={() => handleDeleteNote(notes)}
+            title="Delete"
+            className="cursor-pointer text-deepPink"
+          >
+            <FontAwesomeIcon
+              icon={faTrash}
+              className="hover:scale-125 duration-300 hover:duration-300"
+            />
+          </label>
         </div>
       </div>
       <pre className="cursor-copy">
@@ -50,7 +64,9 @@ const SingleNote = ({ notes, handleDeleteNote }) => {
           )}
         </code>
       </pre>
-      <small className="text-hanPurple">{time}</small>
+      <small className="text-hanPurple">
+        {moment(time).format("DD MMM YYYY, hh:mm A")}
+      </small>
     </div>
   );
 };
