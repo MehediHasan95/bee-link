@@ -22,7 +22,7 @@ module.exports = {
         paradisePink: "#E74F5B",
       },
       minHeight: {
-        49: " calc(100vh - 20vh)",
+        85: " calc(100vh - 15vh)",
       },
       maxWidth: {
         screen4xl: "1920px",

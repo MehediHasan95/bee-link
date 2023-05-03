@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../Firebase/FirebaseConfig";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Navbar = () => {
+  const [user, loading] = useAuthState(auth);
+
   return (
     <div className="navbar bg-transparent lg:px-10">
       <div className="flex-1">
@@ -13,10 +17,11 @@ const Navbar = () => {
 
       <ul className="flex px-1">
         <li className="mx-2 cursor-pointer hover:text-hanPurple hover:font-bold">
-          <Link to="/about">About</Link>
-        </li>
-        <li className="mx-2 cursor-pointer hover:text-hanPurple hover:font-bold">
-          <Link to="/contact">Contact</Link>
+          {!loading && user ? (
+            <p>{user.displayName}</p>
+          ) : (
+            <Link to="/authentication">Login</Link>
+          )}
         </li>
       </ul>
     </div>

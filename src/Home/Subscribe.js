@@ -2,12 +2,14 @@ import React from "react";
 
 const Subscribe = () => {
   return (
-    <section className="my-10 text-center py-5">
-      <h1 className="text-3xl font-bold">Let's stay in touch!</h1>
+    <section className="my-10 text-center py-20">
+      <h1 className="text-3xl font-bold my-3">
+        Let's stay in <span className="text-hanPurple">touch!</span>
+      </h1>
       <p>
-        Join our newsletter, so that we reach out to you
+        Join our newsletter, so that we reach out to you with our best
         <br />
-        with our best news and offers
+        news and offers
       </p>
       <input
         type="email"

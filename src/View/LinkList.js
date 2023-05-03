@@ -7,7 +7,7 @@ import UpdatePopup from "../Utilities/UpdatePopup";
 import DeletePopup from "../Utilities/DeletePopup";
 import { GlobalContext } from "../Context/ContextProvider";
 
-const LinkList = () => {
+const LinkList = ({ searchLink }) => {
   const [user] = useAuthState(auth);
   const { getLink } = useContext(GlobalContext);
   const [findOne, setFindOne] = useState({});
@@ -27,15 +27,31 @@ const LinkList = () => {
     <section>
       {getLink.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {getLink.map((e) => (
-            <SingleLink
-              key={e.id}
-              single={e}
-              user={user}
-              handleFindOne={handleFindOne}
-              handleDeleteItem={handleDeleteItem}
-            />
-          ))}
+          {searchLink.length > 0 ? (
+            <>
+              {searchLink.map((e, index) => (
+                <SingleLink
+                  key={index}
+                  single={e}
+                  user={user}
+                  handleFindOne={handleFindOne}
+                  handleDeleteItem={handleDeleteItem}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              {getLink.map((e) => (
+                <SingleLink
+                  key={e.id}
+                  single={e}
+                  user={user}
+                  handleFindOne={handleFindOne}
+                  handleDeleteItem={handleDeleteItem}
+                />
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <div>

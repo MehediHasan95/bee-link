@@ -1,4 +1,4 @@
-import { faCloudArrowUp, faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import React, { useContext, useState } from "react";
@@ -10,14 +10,14 @@ import { XMarkIcon, CheckIcon } from "@heroicons/react/24/solid";
 import { GlobalContext } from "../Context/ContextProvider";
 
 const ManageLink = () => {
-  const { user, time } = useContext(GlobalContext);
+  const { user, time, getLink } = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
+  const [searchLink, setSearchLink] = useState([]);
 
   const handleManageLink = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const weblink = e.target.weblink.value;
-
     if (name && weblink) {
       const success = addWebLinkToDB(name, weblink, time, user);
       if (success) {
@@ -27,6 +27,16 @@ const ManageLink = () => {
     } else {
       toast.error("Can't keep it empty");
     }
+  };
+
+  const handleSearchLink = (e) => {
+    let searchResults = [];
+    for (const element of getLink) {
+      if (element.name.toLowerCase().includes(e.toLowerCase())) {
+        searchResults.push(element);
+      }
+    }
+    setSearchLink(searchResults);
   };
 
   return (
@@ -88,8 +98,16 @@ const ManageLink = () => {
             <div className="py-1">
               <hr />
             </div>
+            <div>
+              <input
+                onKeyUp={(e) => handleSearchLink(e.target.value)}
+                type="text"
+                className="w-full outline-none p-3 rounded-md focus:outline-hanPurple"
+                placeholder="Search your link"
+              />
+            </div>
             <div className="my-2">
-              <LinkList />
+              <LinkList searchLink={searchLink} />
             </div>
           </div>
         </div>

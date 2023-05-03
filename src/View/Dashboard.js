@@ -62,7 +62,7 @@ const Dashboard = () => {
               <p className="text-xs">Always ready</p>
             </div>
             <hr className="mb-5 hidden lg:block" />
-            <div className="lg:min-h-49 grid content-between">
+            <div className="lg:min-h-85 grid content-between">
               <div className="mt-5 lg:mt-0">
                 <NavLink to="add">
                   {({ isActive }) => (
@@ -94,15 +94,17 @@ const Dashboard = () => {
                 </NavLink>
               </div>
               <div className="hidden lg:block">
-                <button
-                  onClick={() => {
-                    signOut();
-                    navigate("/");
-                  }}
-                  className="w-full text-paradisePink hover:text-hanPurple"
-                >
-                  Log Out
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => {
+                      signOut();
+                      navigate("/");
+                    }}
+                    className="bg-hanPurple hover:bg-paradisePink py-2 px-4 rounded-md"
+                  >
+                    Logout <FontAwesomeIcon icon={faSignOut} />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

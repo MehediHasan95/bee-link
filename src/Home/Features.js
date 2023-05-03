@@ -5,8 +5,10 @@ import click from "../images/click.png";
 
 const Features = () => {
   return (
-    <div className="my-10 text-center py-5">
-      <h1 className="text-3xl font-bold my-3">Our Features</h1>
+    <div className="my-10 text-center py-20">
+      <h1 className="text-3xl font-bold my-3">
+        Our <span className="text-hanPurple">Features</span>
+      </h1>
       <p>
         We are providing some features which will help our client to make his
         work easier
@@ -15,6 +17,7 @@ const Features = () => {
         <div
           className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
+          data-aos-duration="2000"
         >
           <img src={link} alt="" className="w-10 mx-auto" />
           <p className="text-xl font-bold mt-3">Save link</p>
@@ -24,6 +27,7 @@ const Features = () => {
         <div
           className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
+          data-aos-duration="2000"
         >
           <img src={click} alt="" className="w-10 mx-auto" />
           <p className="text-xl font-bold mt-3">Most Click</p>
@@ -32,6 +36,7 @@ const Features = () => {
         <div
           className="bg-white text-center w-11/12 lg:w-3/12 py-10 m-3 rounded-md shadow-lg"
           data-aos="zoom-in"
+          data-aos-duration="2000"
         >
           <img src={money} alt="" className="w-10 mx-auto" />
           <p className="text-xl font-bold mt-3">Make money</p>

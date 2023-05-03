@@ -13,9 +13,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/FirebaseConfig";
 import googleicon from "../images/google.png";
 import PasswordReset from "../Utilities/PasswordReset";
+import { Oval } from "react-loader-spinner";
 
 const Authentication = () => {
   const [toggle, setToggle] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
 
   const location = useLocation();
@@ -28,6 +30,7 @@ const Authentication = () => {
 
   const handleAuthentication = (e) => {
     e.preventDefault();
+    setLoader(true);
     const displayName = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -39,24 +42,32 @@ const Authentication = () => {
             updateProfile(auth.currentUser, {
               displayName: displayName,
             });
-            sendEmailVerification(auth.currentUser).then(() => {
-              toast.success("Please check your mail");
-            }, setToggle(false));
+            sendEmailVerification(auth.currentUser).then(
+              () => {
+                toast.success("Please check your mail");
+              },
+              setLoader(false),
+              setToggle(false)
+            );
           }
         })
         .catch((error) => {
           toast.error(error.message.slice(15));
+          setLoader(false);
         });
     } else {
       signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
           if (result.user.emailVerified) {
+            setLoader(false);
             navigate(from, { replace: true });
           } else {
+            setLoader(false);
             toast.error("Please verify your email");
           }
         })
         .catch((error) => {
+          setLoader(false);
           toast.error(error.message.slice(15));
         });
     }
@@ -122,7 +133,39 @@ const Authentication = () => {
                 onKeyDown={() => handleAuthentication()}
                 className="btn btn-primary"
               >
-                {toggle ? "Register" : "Login"}
+                {toggle ? (
+                  <>
+                    {loader ? (
+                      <Oval
+                        height={30}
+                        width={30}
+                        color="#ffffff"
+                        visible={true}
+                        secondaryColor="#f2f2f2"
+                        strokeWidth={5}
+                        strokeWidthSecondary={5}
+                      />
+                    ) : (
+                      "Register"
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {loader ? (
+                      <Oval
+                        height={30}
+                        width={30}
+                        color="#ffffff"
+                        visible={true}
+                        secondaryColor="#f2f2f2"
+                        strokeWidth={5}
+                        strokeWidthSecondary={5}
+                      />
+                    ) : (
+                      "Login"
+                    )}
+                  </>
+                )}
               </button>
             </div>
             <p className="text-center">

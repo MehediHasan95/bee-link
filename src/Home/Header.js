@@ -12,7 +12,7 @@ const Header = () => {
       <div className="w-full lg:w-3/6">
         <div className="w-11/12 lg:w-3/4 mx-auto p-3" data-aos="zoom-in">
           <h1 className="font-bold text-3xl lg:text-6xl">
-            A <span className="text-[#F1B813]">warm</span> <br />
+            A <span className="text-[#F1B813]">Warm</span> <br />
             Welcome to you
           </h1>
           <p className="my-3">
